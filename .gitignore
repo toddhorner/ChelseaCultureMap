@@ -1,2 +1,4 @@
 .DS_Store
 storymap-shortlist/node_modules/
+storymap-shortlist/package-lock.json
+storymap-shortlist/package.json
