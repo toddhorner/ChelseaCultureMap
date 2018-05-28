@@ -1,3 +1,24 @@
+# Chelsea Cultural Asset Mapping Documentation
+
+This documentation is intended to help guide administrators manage and create cultural asset data. It also serves to provide guidance on future platform customization and extension.
+
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Chelsea Cultural Asset Mapping Documentation](#chelsea-cultural-asset-mapping-documentation)
+	- [Application structure](#application-structure)
+	- [Survey123](#survey123)
+	- [Data dictionary](#data-dictionary)
+	- [Cultural asset categories](#cultural-asset-categories)
+	- [Editor App](#editor-app)
+	- [Landing page](#landing-page)
+
+<!-- /TOC -->
+
+## Application structure
+
+
+## Survey123
+
 ## Data dictionary
 
 The table below specifies the data schema of the cultural asset feature service hosted on ArcGIS Online. Note that the Storymap Shortlist requires the following fields to function properly: `NAME`, `TAB_NAME`, `PIC_URL`, `THUMB_URL`, `DESC1`. For more information about the Storymap Shortlist app template, visit the FAQ [here](https://storymaps.arcgis.com/en/faq/#question45) or the Shortlist Github repository, [here](https://github.com/Esri/storymap-shortlist/).
@@ -63,6 +84,7 @@ For a detailed view of the feature service specification, you can access the fea
   - Exhibition space
   - Place of worship
   - Social club
+  - Community center
 - **Food**
   - Bar
   - Restaurant
@@ -74,4 +96,18 @@ For a detailed view of the feature service specification, you can access the fea
   - Educational programming
   - Festival
   - Meeting hall
+  - Cultural organization
   - Other notable event
+
+
+## Editor App
+
+The editor application allows cultural asset map administrators to create and edit cultural assets, as well as approve survey submitted assets for public display. A link to the map editor can be found at the bottom of the [main webpage](../index.html).
+
+The application has several useful features:
+
+- The edit widget is accessed by an icon in the upper left-hand corner. Once in edit mode, map symbols will change from their original appearance to red dots. Cultural asset information can be changed by simply clicking on each asset and changing the text for the desired field. Changes are saved automatically.
+- Users can filter assets by category, as well as by approval status. The filter widget is also accessed in the upper left-hand corner.
+- Users can search for existing assets or a street address by using the search bar.
+
+## Landing page
