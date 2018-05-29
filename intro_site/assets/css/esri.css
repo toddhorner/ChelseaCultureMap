@@ -21,3 +21,45 @@ small {
   bottom: 0;
   margin-bottom: -15px;
 }
+
+/**********Pop-up***********/
+
+div.esriPopupWrapper {
+  width:100%;
+  margin:0px;
+
+}
+
+.banner.style1 .sizer.content{
+  margin:0px;
+  padding:0px
+}
+
+div.contentPane{
+  margin:0px;
+  width:270px;
+  padding:60px
+}
+
+div.esriPopupMaximized .contentPane{
+  width:100%
+}
+
+div.mainSection {
+  padding:6px;
+  font-family:Montserrat;
+}
+
+div.attachmentsSection {
+  font-family:Montserrat;
+}
+
+div#map.map {
+  height:100%;
+  width:100%
+}
+
+.banner.style1 .image .mainSection img {
+  width:100%;
+  position:static;
+}
