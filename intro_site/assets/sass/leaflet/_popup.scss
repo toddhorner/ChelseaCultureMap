@@ -1,0 +1,16 @@
+.leaflet-popup-content {
+  h1, h2, h3, h4 {
+    font-family: _font(family);
+  }
+
+  p {
+    font-family: _pfont(family);
+    font-size:16px
+  }
+
+  padding: 1em 0 0 0;
+}
+
+div.leaflet-popup-content-wrapper {
+  border-radius: 0px;
+}

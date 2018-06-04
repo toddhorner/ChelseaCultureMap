@@ -1,9 +1,15 @@
 ## Working todo list
 
-- Change icons on map to match subcategory types, as opposed to attempting to symbolizing categories with a single icon. (Doesn't work great for creative industries, for example.)
-- Add an icon type for evenly mixed clusters.
-- On main page, make a gallery of walking tours, which link to ArcGIS story maps.
-- On main page, link to a full-screen version of the map currently displayed at the top of the page.
-  - On the full-screen version, create custom large pop-ups or shadowboxes that display images in large format.
-- On base map, make main streets slightly wider. Some intersections look a bit strange when zoomed in.
-- Add translation button to main page.
+
+| Item                                                                                                                                                                              | Status    | Notes                                                                     |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------- |
+| Add translation button to main page.                                                                                                                                              | Complete. |                                                                           |
+| Add a way for public users to EDIT cultural assets                                                                                                                                |           | Perhaps add a field in survey that notes whether this is an edited asset. |
+| On base map, make main streets slightly wider. Some intersections look a bit strange when zoomed in.                                                                              |           |                                                                           |
+| On the full-screen version, create custom large pop-ups or shadowboxes that display images in large format.                                                                       |           |                                                                           |
+| Add an icon type for evenly mixed clusters.                                                                                                                                       |           |                                                                           |
+| Change icons on map to match subcategory types, as opposed to attempting to symbolizing categories with a single icon. (Doesn't work great for creative industries, for example.) |           |                                                                           |
+| Perhaps add a question to survey that registers concern about the potential loss of an asset.                                                                                     |           |                                                                           |
+| Add a zoning underlay                                                                                                                                                             |           |                                                                           |
+| Documentation for how to change/add asset categories                                                                                                                              |           |                                                                           |
+|                                                                                                                                                                                   |           |                                                                           |
