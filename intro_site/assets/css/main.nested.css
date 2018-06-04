@@ -1041,7 +1041,10 @@ body {
   background-color: #ffffff;
   color: #000000; }
 
-body, input, select, textarea {
+body,
+input,
+select,
+textarea {
   font-family: "Arvo", serif;
   font-size: 1rem;
   font-weight: 900;
@@ -1056,24 +1059,36 @@ a {
   a:hover {
     text-decoration: none; }
 
-strong, b {
+b,
+strong {
   font-weight: 900; }
 
-em, i {
+em,
+i {
   font-style: italic; }
 
 p {
   font-family: "Montserrat", sans-serif;
-  margin: 0 0 2rem 0; }
+  margin: 0 0 2rem; }
   p.major {
     font-size: 1.25rem; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 900;
   line-height: 1.375;
   letter-spacing: -0.05em;
   margin: 0 0 1rem 0; }
-  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a,
+  h6 a {
     color: inherit;
     text-decoration: none; }
 
@@ -1109,7 +1124,7 @@ sup {
 blockquote {
   border-left: solid 4px;
   font-style: italic;
-  margin: 0 0 2rem 0;
+  margin: 0 0 2rem;
   padding: 0.5rem 0 0.5rem 2rem; }
 
 code {
@@ -1123,7 +1138,7 @@ pre {
   -webkit-overflow-scrolling: touch;
   font-family: "Courier New", monospace;
   font-size: 0.9em;
-  margin: 0 0 2rem 0; }
+  margin: 0 0 2rem; }
   pre code {
     display: block;
     line-height: 1.5;
@@ -1159,7 +1174,9 @@ hr {
   h4 {
     font-size: 1rem; } }
 
-input, select, textarea {
+input,
+select,
+textarea {
   color: #000000; }
 
 a {
@@ -1167,10 +1184,16 @@ a {
   a:hover {
     color: #FFB733; }
 
-strong, b {
+b,
+strong {
   color: #000000; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #000000; }
 
 blockquote {
@@ -1184,8 +1207,13 @@ hr {
   border-bottom-color: rgba(0, 0, 0, 0.2); }
 
 /**Custom**/
+.leaflet-control-layers-overlays,
+.leaflet-control-layers-toggle h3,
 .leaflet-popup-content .button {
   font-family: "Arvo", serif; }
+
+.leaflet-control-layers-toggle h3 {
+  font-size: 20px; }
 
 /* Box */
 .box {
@@ -1336,49 +1364,49 @@ button,
       background-color: #f59e00; }
 
 /* Form */
-form {
-  margin: 0 0 2rem 0; }
-  form .field {
+form, .leaflet-control-layers-list {
+  margin: 0 0 2rem; }
+  form .field, .leaflet-control-layers-list .field {
     margin: 0 0 1.5rem 0;
     clear: both; }
-    form .field.half {
+    form .field.half, .leaflet-control-layers-list .field.half {
       clear: none;
       width: 50%;
       float: left;
       padding: 0 0 0 0.75rem; }
-      form .field.half.first {
+      form .field.half.first, .leaflet-control-layers-list .field.half.first {
         padding: 0 0.75rem 0 0; }
-    form .field.third {
+    form .field.third, .leaflet-control-layers-list .field.third {
       clear: none;
       width: 33.33333%;
       float: left;
       padding: 0 0 0 0.75rem; }
-      form .field.third.first {
+      form .field.third.first, .leaflet-control-layers-list .field.third.first {
         padding: 0 0.75rem 0 0; }
-  form > .actions {
+  form > .actions, .leaflet-control-layers-list > .actions {
     clear: both;
     margin: 1.875rem 0 0 0 !important; }
   @media screen and (max-width: 736px) {
-    form .field {
+    form .field, .leaflet-control-layers-list .field {
       margin: 0 0 1.125rem 0; }
-      form .field.half {
+      form .field.half, .leaflet-control-layers-list .field.half {
         padding: 0 0 0 0.5625rem; }
-        form .field.half.first {
+        form .field.half.first, .leaflet-control-layers-list .field.half.first {
           padding: 0 0.5625rem 0 0; }
-    form > .actions {
+    form > .actions, .leaflet-control-layers-list > .actions {
       margin: 1.5rem 0 0 0 !important; } }
   @media screen and (max-width: 480px) {
-    form .field.half {
+    form .field.half, .leaflet-control-layers-list .field.half {
       width: 100%;
       float: none;
       padding: 0; }
-      form .field.half.first {
+      form .field.half.first, .leaflet-control-layers-list .field.half.first {
         padding: 0; }
-    form .field.third {
+    form .field.third, .leaflet-control-layers-list .field.third {
       width: 100%;
       float: none;
       padding: 0; }
-      form .field.third.first {
+      form .field.third.first, .leaflet-control-layers-list .field.third.first {
         padding: 0; } }
 
 label {
@@ -1468,8 +1496,9 @@ input[type="radio"] {
   opacity: 0;
   width: 1rem;
   z-index: -1; }
-  input[type="checkbox"] + label,
-  input[type="radio"] + label {
+  input[type="checkbox"] + label, input[type="checkbox"] + span,
+  input[type="radio"] + label,
+  input[type="radio"] + span {
     text-decoration: none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -1483,16 +1512,18 @@ input[type="radio"] {
     padding-right: 0.75rem;
     position: relative;
     margin-bottom: 0; }
-    input[type="checkbox"] + label:before,
-    input[type="radio"] + label:before {
+    input[type="checkbox"] + label:before, input[type="checkbox"] + span:before,
+    input[type="radio"] + label:before,
+    input[type="radio"] + span:before {
       -moz-osx-font-smoothing: grayscale;
       -webkit-font-smoothing: antialiased;
       font-family: FontAwesome;
       font-style: normal;
       font-weight: normal;
       text-transform: none !important; }
-    input[type="checkbox"] + label:before,
-    input[type="radio"] + label:before {
+    input[type="checkbox"] + label:before, input[type="checkbox"] + span:before,
+    input[type="radio"] + label:before,
+    input[type="radio"] + span:before {
       border-radius: 4px;
       border: solid 1px;
       content: '';
@@ -1504,11 +1535,12 @@ input[type="radio"] {
       text-align: center;
       top: 0;
       width: 1.65rem; }
-  input[type="checkbox"]:checked + label:before,
-  input[type="radio"]:checked + label:before {
+  input[type="checkbox"]:checked + label:before, input[type="checkbox"]:checked + span:before,
+  input[type="radio"]:checked + label:before,
+  input[type="radio"]:checked + span:before {
     content: '\f00c'; }
 
-input[type="checkbox"] + label:before {
+input[type="checkbox"] + label:before, input[type="checkbox"] + span:before {
   border-radius: 4px; }
 
 input[type="radio"] + label:before {
@@ -1555,15 +1587,18 @@ textarea {
 .select-wrapper:before {
   color: rgba(0, 0, 0, 0.2); }
 
-input[type="checkbox"] + label,
-input[type="radio"] + label {
+input[type="checkbox"] + label, input[type="checkbox"] + span,
+input[type="radio"] + label,
+input[type="radio"] + span {
   color: #000000; }
-  input[type="checkbox"] + label:before,
-  input[type="radio"] + label:before {
+  input[type="checkbox"] + label:before, input[type="checkbox"] + span:before,
+  input[type="radio"] + label:before,
+  input[type="radio"] + span:before {
     border-color: rgba(0, 0, 0, 0.2); }
 
-input[type="checkbox"]:checked + label:before,
-input[type="radio"]:checked + label:before {
+input[type="checkbox"]:checked + label:before, input[type="checkbox"]:checked + span:before,
+input[type="radio"]:checked + label:before,
+input[type="radio"]:checked + span:before {
   background-color: #000000;
   border-color: #000000;
   color: #ffffff; }
@@ -4353,15 +4388,23 @@ body.is-loading .gallery.onload-fade-in article .image img {
   position: relative;
   width: 100%;
   background-color: transparent; }
-  .gallery.style1 input, .gallery.style1 select, .gallery.style1 textarea {
+  .gallery.style1 input,
+  .gallery.style1 select,
+  .gallery.style1 textarea {
     color: #ffffff; }
   .gallery.style1 a {
     color: #ffffff; }
     .gallery.style1 a:hover {
       color: #FFB733; }
-  .gallery.style1 strong, .gallery.style1 b {
+  .gallery.style1 b,
+  .gallery.style1 strong {
     color: #ffffff; }
-  .gallery.style1 h1, .gallery.style1 h2, .gallery.style1 h3, .gallery.style1 h4, .gallery.style1 h5, .gallery.style1 h6 {
+  .gallery.style1 h1,
+  .gallery.style1 h2,
+  .gallery.style1 h3,
+  .gallery.style1 h4,
+  .gallery.style1 h5,
+  .gallery.style1 h6 {
     color: #ffffff; }
   .gallery.style1 blockquote {
     border-left-color: white; }
@@ -4559,15 +4602,23 @@ body.is-loading .gallery.onload-fade-in article .image img {
   -webkit-overflow-scrolling: touch;
   position: relative;
   background-color: transparent; }
-  .gallery.style2 input, .gallery.style2 select, .gallery.style2 textarea {
+  .gallery.style2 input,
+  .gallery.style2 select,
+  .gallery.style2 textarea {
     color: #ffffff; }
   .gallery.style2 a {
     color: #ffffff; }
     .gallery.style2 a:hover {
       color: #FFB733; }
-  .gallery.style2 strong, .gallery.style2 b {
+  .gallery.style2 b,
+  .gallery.style2 strong {
     color: #ffffff; }
-  .gallery.style2 h1, .gallery.style2 h2, .gallery.style2 h3, .gallery.style2 h4, .gallery.style2 h5, .gallery.style2 h6 {
+  .gallery.style2 h1,
+  .gallery.style2 h2,
+  .gallery.style2 h3,
+  .gallery.style2 h4,
+  .gallery.style2 h5,
+  .gallery.style2 h6 {
     color: #ffffff; }
   .gallery.style2 blockquote {
     border-left-color: white; }
@@ -5634,15 +5685,23 @@ body.is-loading .items.onload-fade-in > * > .inner {
   #wrapper > .invert {
     background-color: #000000;
     color: #ffffff; }
-    #wrapper > .invert input, #wrapper > .invert select, #wrapper > .invert textarea {
+    #wrapper > .invert input,
+    #wrapper > .invert select,
+    #wrapper > .invert textarea {
       color: #ffffff; }
     #wrapper > .invert a {
       color: #ffffff; }
       #wrapper > .invert a:hover {
         color: #FFB733; }
-    #wrapper > .invert strong, #wrapper > .invert b {
+    #wrapper > .invert b,
+    #wrapper > .invert strong {
       color: #ffffff; }
-    #wrapper > .invert h1, #wrapper > .invert h2, #wrapper > .invert h3, #wrapper > .invert h4, #wrapper > .invert h5, #wrapper > .invert h6 {
+    #wrapper > .invert h1,
+    #wrapper > .invert h2,
+    #wrapper > .invert h3,
+    #wrapper > .invert h4,
+    #wrapper > .invert h5,
+    #wrapper > .invert h6 {
       color: #ffffff; }
     #wrapper > .invert blockquote {
       border-left-color: white; }
@@ -5718,14 +5777,17 @@ body.is-loading .items.onload-fade-in > * > .inner {
         box-shadow: 0 0 0 1px #FFB733; }
     #wrapper > .invert .select-wrapper:before {
       color: white; }
-    #wrapper > .invert input[type="checkbox"] + label,
-    #wrapper > .invert input[type="radio"] + label {
+    #wrapper > .invert input[type="checkbox"] + label, #wrapper > .invert input[type="checkbox"] + span,
+    #wrapper > .invert input[type="radio"] + label,
+    #wrapper > .invert input[type="radio"] + span {
       color: #ffffff; }
-      #wrapper > .invert input[type="checkbox"] + label:before,
-      #wrapper > .invert input[type="radio"] + label:before {
+      #wrapper > .invert input[type="checkbox"] + label:before, #wrapper > .invert input[type="checkbox"] + span:before,
+      #wrapper > .invert input[type="radio"] + label:before,
+      #wrapper > .invert input[type="radio"] + span:before {
         border-color: white; }
-    #wrapper > .invert input[type="checkbox"]:checked + label:before,
-    #wrapper > .invert input[type="radio"]:checked + label:before {
+    #wrapper > .invert input[type="checkbox"]:checked + label:before, #wrapper > .invert input[type="checkbox"]:checked + span:before,
+    #wrapper > .invert input[type="radio"]:checked + label:before,
+    #wrapper > .invert input[type="radio"]:checked + span:before {
       background-color: #ffffff;
       border-color: #ffffff;
       color: #000000; }
@@ -5848,6 +5910,10 @@ body.is-loading .items.onload-fade-in > * > .inner {
   .leaflet-popup-content p {
     font-family: "Montserrat", sans-serif;
     font-size: 16px; }
+  .leaflet-popup-content img {
+    display: block;
+    margin: 1em 0 1em 0;
+    width: 100%; }
 
 div.leaflet-popup-content-wrapper {
   border-radius: 0px; }
@@ -5942,3 +6008,30 @@ div[class*="digits-3"]:before {
 .leaflet-marker-pane div[class*="programming"] {
   background: #62358C;
   border: 1px solid #62358C; }
+
+.leaflet-control-layers {
+  width: 270px;
+  background-color: #000000;
+  border-width: 0; }
+  .leaflet-control-layers h1,
+  .leaflet-control-layers h2,
+  .leaflet-control-layers h3,
+  .leaflet-control-layers h4,
+  .leaflet-control-layers h5 {
+    margin: 0; }
+  .leaflet-control-layers .leaflet-control-layers-toggle {
+    background-image: none;
+    width: 100%;
+    height: 30px;
+    margin: 10px;
+    text-decoration: none; }
+    .leaflet-control-layers .leaflet-control-layers-toggle h1,
+    .leaflet-control-layers .leaflet-control-layers-toggle h2,
+    .leaflet-control-layers .leaflet-control-layers-toggle h3,
+    .leaflet-control-layers .leaflet-control-layers-toggle h4,
+    .leaflet-control-layers .leaflet-control-layers-toggle h5,
+    .leaflet-control-layers .leaflet-control-layers-toggle h6 {
+      color: white;
+      margin: 0; }
+  .leaflet-control-layers .leaflet-control-layers-list {
+    margin: 0.5rem 0 1rem; }

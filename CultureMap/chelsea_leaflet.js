@@ -4,16 +4,9 @@ const base_map_URL = 'https://api.mapbox.com/styles/v1/tohorner/cjhijn5ba1zon2rp
 const feature_layer_URL = 'https://services3.arcgis.com/U4SbXhYNLOfN36SP/arcgis/rest/services/View_for_Shortlist/FeatureServer/0'
 
 /**
- * An array of the major cultural asset categories.
- * @type {Array}
- */
-// const asset_categories = ['Architecture', 'Landmark or monument', 'Public art', 'Creative industry', 'Park or open space', 'Cultural facility', 'Food', 'Programming or event'];
-
-/**
  * A dictionary for mapping ArcGIS Online field names to HTML-safe strings
  * @type {Object}
  */
-
 const asset_categories = {
   'Architecture': 'architecture',
   'Landmark or monument': 'landmark',
@@ -21,7 +14,7 @@ const asset_categories = {
   'Creative industry': 'creative-industry',
   'Park or open space': 'park',
   'Cultural facility': 'cultural-facility',
-  'food': 'food',
+  'Food': 'food',
   'Programming or event': 'programming'
 }
 
@@ -45,12 +38,25 @@ const category_field = "TAB_NAME"
 
 /******** end config ********/
 
-var mymap = L.map('chelsea_leaflet').setView([42.39, -71.035], 16);
+// Initialize the Map
+var mymap = L.map('chelsea_leaflet',{
+  zoomControl : false
+})
 
+//Add zoom
+var zoom = new L.Control.Zoom({ position: 'bottomright' }).addTo(mymap);
+
+mymap.setView([42.39, -71.035], 16);
+
+// Add the basemap
 L.tileLayer(base_map_URL, {
   maxZoom: 21
 }).addTo(mymap);
 
+// Move zoom control to lower left corner
+// L.Control.setPosition('bottomright');
+
+let layers = {};
 
 // Make a cluster layer for each type of asset category
 for (let cat in asset_categories) {
@@ -75,6 +81,8 @@ for (let cat in asset_categories) {
     }
   }).addTo(mymap)
 
+  layers[asset_categories[cat]] = layer;
+
   let popup = L.popup({
     maxWidth:400,
     maxHeight:400,
@@ -86,7 +94,7 @@ for (let cat in asset_categories) {
     let template = "<h3>{NAME}</h3>"
 
     if (feature_props['PIC_URL']){
-      template = template + '<img src={PIC_URL} height=200>';
+      template = template + '<img src={PIC_URL}>';
     }
 
     if (feature_props['DESC1']){
@@ -104,13 +112,46 @@ for (let cat in asset_categories) {
 
 }
 
+/***********Layers control***************/
+
+
+// Swap out html-safe asset category labels for readable labels
+let asset_categories_reversed = {}
+for (let key in asset_categories){
+  asset_categories_reversed[asset_categories[key]] = key
+}
+
+let label_layers = {}
+for (let key in layers){
+  label_layers[asset_categories_reversed[key]] = layers[key]
+}
+
+var layer_widget = L.control.layers(null, label_layers).addTo(mymap);
+
+//Adjust colors of layer layer_widget
+
+let palette_readable = {}
+for (let key in palette){
+  palette_readable[asset_categories_reversed[key]] = palette[key]
+}
+
+for (let key in palette_readable) {
+  selector_string = "div.leaflet-control-layers-overlays span:contains('" + key + "')"
+  $(selector_string).css("color",palette_readable[key]);
+}
+
+//Change control icon
+
+$(".leaflet-control-layers-toggle").html("<h3>Cultural Asset Categories</h3>")
+
+/** HELPER FUNCTIONS **/
+
 /**
  * Closure for assigning classes to icons according
  * to asset category
  * @param  {string} category [description]
  * @return {function}          [description]
  */
-
 function clusterFunction(category) {
   return function(cluster) {
     // get the number of items in the cluster

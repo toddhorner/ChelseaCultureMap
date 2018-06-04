@@ -126,6 +126,7 @@
 		// ...
 	}
 }
+
 // Base.
 @import 'base/page';
 @import 'base/typography';
@@ -149,4 +150,5 @@
 @import 'layout/wrapper';
 // Additonal
 @import 'leaflet/popup';
-@import 'leaflet/map'
+@import 'leaflet/map';
+@import 'leaflet/layer_control'
