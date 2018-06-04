@@ -1,5 +1,4 @@
 //Main sass filed
-
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
@@ -126,11 +125,18 @@
 		// ...
 	}
 }
+/** Custom **/
+#first_section {
+	overflow: hidden;
+	div.content {
+		padding-top: 2rem;
+	}
+}
+
 
 // Base.
 @import 'base/page';
-@import 'base/typography';
-// Component.
+@import 'base/typography'; // Component.
 @import 'components/box';
 @import 'components/button';
 @import 'components/form';
@@ -145,10 +151,9 @@
 @import 'components/wrapper';
 @import 'components/items';
 @import 'components/index';
-@import 'components/google';
-// Layout.
-@import 'layout/wrapper';
-// Additonal
+@import 'components/google'; // Layout.
+@import 'layout/wrapper'; // Additonal
 @import 'leaflet/popup';
 @import 'leaflet/map';
-@import 'leaflet/layer_control'
+@import 'leaflet/layer_control';
+@import 'leaflet/reset'

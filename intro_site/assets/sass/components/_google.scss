@@ -1,13 +1,30 @@
-// Style for google translate element
-
-.goog-te-menu-value {
-  font-family: _font(family);
-}
-
 #google_translate_element {
   margin-bottom: 2em;
+
+  .goog-te-gadget-simple {
+    border-width: 1px;
+    border-color: #444444;
+    padding:5px;
+    border-radius: 5px;
+  }
+
+  .goog-te-menu-value {
+    font-family: _font(family);
+  }
+
+  img {
+    visibility: hidden;
+    width:0px;
+    margin:0px
+  }
+
+  .goog-te-menu-value {
+      span {
+        margin-right:5px;
+      }
+  }
 }
 
-.goog-te-gadget-simple {
-  background-color: #000000;
+iframe.goog-te-banner-frame {
+
 }

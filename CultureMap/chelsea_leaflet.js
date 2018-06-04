@@ -40,7 +40,8 @@ const category_field = "TAB_NAME"
 
 // Initialize the Map
 var mymap = L.map('chelsea_leaflet',{
-  zoomControl : false
+  zoomControl : false,
+  scrollWheelZoom: false
 })
 
 //Add zoom
@@ -99,6 +100,10 @@ for (let cat in asset_categories) {
 
     if (feature_props['DESC1']){
       template = template + '<p>{DESC1}</p>';
+    }
+
+    if (feature_props['TAB_NAME']){
+      template = template + '<p><i>Cateogry: {TAB_NAME}</p></i>';
     }
 
     if (feature_props['WEBSITE']){

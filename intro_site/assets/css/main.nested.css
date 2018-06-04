@@ -998,6 +998,12 @@ body {
   .\-1u\28xxsmall\29 {
     margin-left: 8.3333333333%; } }
 
+/** Custom **/
+#first_section {
+  overflow: hidden; }
+  #first_section div.content {
+    padding-top: 2rem; }
+
 /* Basic */
 @-ms-viewport {
   width: device-width; }
@@ -5668,14 +5674,21 @@ body.is-loading .items.onload-fade-in > * > .inner {
 .index > * {
   border-top-color: rgba(0, 0, 0, 0.2); }
 
-.goog-te-menu-value {
-  font-family: "Arvo", serif; }
-
 #google_translate_element {
   margin-bottom: 2em; }
-
-.goog-te-gadget-simple {
-  background-color: #000000; }
+  #google_translate_element .goog-te-gadget-simple {
+    border-width: 1px;
+    border-color: #444444;
+    padding: 5px;
+    border-radius: 5px; }
+  #google_translate_element .goog-te-menu-value {
+    font-family: "Arvo", serif; }
+  #google_translate_element img {
+    visibility: hidden;
+    width: 0px;
+    margin: 0px; }
+  #google_translate_element .goog-te-menu-value span {
+    margin-right: 5px; }
 
 /* Wrapper */
 #wrapper {
@@ -6035,3 +6048,122 @@ div[class*="digits-3"]:before {
       margin: 0; }
   .leaflet-control-layers .leaflet-control-layers-list {
     margin: 0.5rem 0 1rem; }
+
+#reset_div {
+  /* HTML5 display-role reset for older browsers */ }
+  #reset_div a,
+  #reset_div abbr,
+  #reset_div acronym,
+  #reset_div address,
+  #reset_div applet,
+  #reset_div article,
+  #reset_div aside,
+  #reset_div audio,
+  #reset_div b,
+  #reset_div big,
+  #reset_div blockquote,
+  #reset_div body,
+  #reset_div canvas,
+  #reset_div caption,
+  #reset_div center,
+  #reset_div cite,
+  #reset_div code,
+  #reset_div dd,
+  #reset_div del,
+  #reset_div details,
+  #reset_div dfn,
+  #reset_div div,
+  #reset_div dl,
+  #reset_div dt,
+  #reset_div em,
+  #reset_div embed,
+  #reset_div fieldset,
+  #reset_div figcaption,
+  #reset_div figure,
+  #reset_div footer,
+  #reset_div form,
+  #reset_div h1,
+  #reset_div h2,
+  #reset_div h3,
+  #reset_div h4,
+  #reset_div h5,
+  #reset_div h6,
+  #reset_div header,
+  #reset_div hgroup,
+  #reset_div html,
+  #reset_div i,
+  #reset_div iframe,
+  #reset_div img,
+  #reset_div ins,
+  #reset_div kbd,
+  #reset_div label,
+  #reset_div legend,
+  #reset_div li,
+  #reset_div mark,
+  #reset_div menu,
+  #reset_div nav,
+  #reset_div object,
+  #reset_div ol,
+  #reset_div output,
+  #reset_div p,
+  #reset_div pre,
+  #reset_div q,
+  #reset_div ruby,
+  #reset_div s,
+  #reset_div samp,
+  #reset_div section,
+  #reset_div small,
+  #reset_div span,
+  #reset_div strike,
+  #reset_div strong,
+  #reset_div sub,
+  #reset_div summary,
+  #reset_div sup,
+  #reset_div table,
+  #reset_div tbody,
+  #reset_div td,
+  #reset_div tfoot,
+  #reset_div th,
+  #reset_div thead,
+  #reset_div time,
+  #reset_div tr,
+  #reset_div tt,
+  #reset_div u,
+  #reset_div ul,
+  #reset_div var,
+  #reset_div video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline; }
+  #reset_div article,
+  #reset_div aside,
+  #reset_div details,
+  #reset_div figcaption,
+  #reset_div figure,
+  #reset_div footer,
+  #reset_div header,
+  #reset_div hgroup,
+  #reset_div menu,
+  #reset_div nav,
+  #reset_div section {
+    display: block; }
+  #reset_div body {
+    line-height: 1; }
+  #reset_div ol,
+  #reset_div ul {
+    list-style: none; }
+  #reset_div blockquote,
+  #reset_div q {
+    quotes: none; }
+  #reset_div blockquote:after,
+  #reset_div blockquote:before,
+  #reset_div q:after,
+  #reset_div q:before {
+    content: '';
+    content: none; }
+  #reset_div table {
+    border-collapse: collapse;
+    border-spacing: 0; }
