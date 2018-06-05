@@ -1004,6 +1004,9 @@ body {
   #first_section div.content {
     padding-top: 2rem; }
 
+#culture_map_logo {
+  padding-bottom: 10px; }
+
 /* Basic */
 @-ms-viewport {
   width: device-width; }
