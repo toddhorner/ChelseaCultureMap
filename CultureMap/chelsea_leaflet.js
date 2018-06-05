@@ -103,7 +103,7 @@ for (let cat in asset_categories) {
     }
 
     if (feature_props['TAB_NAME']){
-      template = template + '<p><i>Cateogry: {TAB_NAME}</p></i>';
+      template = template + '<p><i>Category: {TAB_NAME}</p></i>';
     }
 
     if (feature_props['WEBSITE']){
@@ -142,7 +142,7 @@ for (let key in palette){
 
 for (let key in palette_readable) {
   selector_string = "div.leaflet-control-layers-overlays span:contains('" + key + "')"
-  $(selector_string).css("color",palette_readable[key]);
+  $(selector_string).closest("div").css("background-color",palette_readable[key]);
 }
 
 //Change control icon

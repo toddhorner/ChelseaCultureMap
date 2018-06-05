@@ -1602,9 +1602,17 @@ input[type="radio"] + span {
   input[type="radio"] + span:before {
     border-color: rgba(0, 0, 0, 0.2); }
 
-input[type="checkbox"]:checked + label:before, input[type="checkbox"]:checked + span:before,
+input[type="checkbox"] + span,
+input[type="radio"] + span {
+  color: #ffffff; }
+  input[type="checkbox"] + span:before,
+  input[type="radio"] + span:before {
+    border-color: #ffffff;
+    color: #ffffff; }
+
+input[type="checkbox"]:checked + label:before, input[type="checkbox"]:checked + label:before,
 input[type="radio"]:checked + label:before,
-input[type="radio"]:checked + span:before {
+input[type="radio"]:checked + label:before {
   background-color: #000000;
   border-color: #000000;
   color: #ffffff; }
@@ -5798,9 +5806,16 @@ body.is-loading .items.onload-fade-in > * > .inner {
       #wrapper > .invert input[type="radio"] + label:before,
       #wrapper > .invert input[type="radio"] + span:before {
         border-color: white; }
-    #wrapper > .invert input[type="checkbox"]:checked + label:before, #wrapper > .invert input[type="checkbox"]:checked + span:before,
+    #wrapper > .invert input[type="checkbox"] + span,
+    #wrapper > .invert input[type="radio"] + span {
+      color: #ffffff; }
+      #wrapper > .invert input[type="checkbox"] + span:before,
+      #wrapper > .invert input[type="radio"] + span:before {
+        border-color: #ffffff;
+        color: #ffffff; }
+    #wrapper > .invert input[type="checkbox"]:checked + label:before, #wrapper > .invert input[type="checkbox"]:checked + label:before,
     #wrapper > .invert input[type="radio"]:checked + label:before,
-    #wrapper > .invert input[type="radio"]:checked + span:before {
+    #wrapper > .invert input[type="radio"]:checked + label:before {
       background-color: #ffffff;
       border-color: #ffffff;
       color: #000000; }
@@ -5931,6 +5946,10 @@ body.is-loading .items.onload-fade-in > * > .inner {
 div.leaflet-popup-content-wrapper {
   border-radius: 0px; }
 
+html, body, #chelsea_leaflet {
+  height: 100%;
+  width: 100vw; }
+
 #chelsea_leaflet {
   position: absolute;
   top: 0;
@@ -6022,17 +6041,27 @@ div[class*="digits-3"]:before {
   background: #62358C;
   border: 1px solid #62358C; }
 
-.leaflet-control-layers {
+div.leaflet-control-layers.leaflet-control {
+  border-width: 5px;
+  border-color: #000; }
+
+.leaflet-control-layers, .leaflet-control-layers-expanded {
   width: 270px;
   background-color: #000000;
-  border-width: 0; }
+  border-width: 0;
+  padding: 0px;
+  border: 0; }
   .leaflet-control-layers h1,
   .leaflet-control-layers h2,
   .leaflet-control-layers h3,
   .leaflet-control-layers h4,
-  .leaflet-control-layers h5 {
+  .leaflet-control-layers h5, .leaflet-control-layers-expanded h1,
+  .leaflet-control-layers-expanded h2,
+  .leaflet-control-layers-expanded h3,
+  .leaflet-control-layers-expanded h4,
+  .leaflet-control-layers-expanded h5 {
     margin: 0; }
-  .leaflet-control-layers .leaflet-control-layers-toggle {
+  .leaflet-control-layers .leaflet-control-layers-toggle, .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
     background-image: none;
     width: 100%;
     height: 30px;
@@ -6043,11 +6072,24 @@ div[class*="digits-3"]:before {
     .leaflet-control-layers .leaflet-control-layers-toggle h3,
     .leaflet-control-layers .leaflet-control-layers-toggle h4,
     .leaflet-control-layers .leaflet-control-layers-toggle h5,
-    .leaflet-control-layers .leaflet-control-layers-toggle h6 {
+    .leaflet-control-layers .leaflet-control-layers-toggle h6, .leaflet-control-layers-expanded .leaflet-control-layers-toggle h1,
+    .leaflet-control-layers-expanded .leaflet-control-layers-toggle h2,
+    .leaflet-control-layers-expanded .leaflet-control-layers-toggle h3,
+    .leaflet-control-layers-expanded .leaflet-control-layers-toggle h4,
+    .leaflet-control-layers-expanded .leaflet-control-layers-toggle h5,
+    .leaflet-control-layers-expanded .leaflet-control-layers-toggle h6 {
       color: white;
       margin: 0; }
-  .leaflet-control-layers .leaflet-control-layers-list {
-    margin: 0.5rem 0 1rem; }
+  .leaflet-control-layers .leaflet-control-layers-list, .leaflet-control-layers-expanded .leaflet-control-layers-list {
+    margin: 0px; }
+    .leaflet-control-layers .leaflet-control-layers-list span, .leaflet-control-layers-expanded .leaflet-control-layers-list span {
+      font-size: 14px; }
+    .leaflet-control-layers .leaflet-control-layers-list label, .leaflet-control-layers-expanded .leaflet-control-layers-list label {
+      margin: 0; }
+    .leaflet-control-layers .leaflet-control-layers-list .leaflet-control-layers-overlays div, .leaflet-control-layers-expanded .leaflet-control-layers-list .leaflet-control-layers-overlays div {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px; }
 
 #reset_div {
   /* HTML5 display-role reset for older browsers */ }

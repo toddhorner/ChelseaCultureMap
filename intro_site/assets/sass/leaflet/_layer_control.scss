@@ -1,7 +1,14 @@
-.leaflet-control-layers {
+div.leaflet-control-layers.leaflet-control {
+  border-width:5px;
+  border-color:#000;
+}
+
+.leaflet-control-layers, .leaflet-control-layers-expanded {
   width: 270px;
   background-color: #000000;
   border-width: 0;
+  padding:0px;
+  border:0;
 
   h1,
   h2,
@@ -31,6 +38,22 @@
   }
 
   .leaflet-control-layers-list {
-    margin: 0.5rem 0 1rem;
+    margin: 0px;
+
+    span {
+      font-size: 14px
+    }
+
+    label {
+      margin:0;
+    }
+
+    .leaflet-control-layers-overlays div {
+      padding-top:10px;
+      padding-bottom: 10px;
+      padding-left:10px;
+    }
+
+
   }
 }

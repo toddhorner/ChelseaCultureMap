@@ -255,7 +255,7 @@ input[type="radio"] {
 	input[type="checkbox"],
 	input[type="radio"],
 	 {
-		& + label, & + span {
+		& + label, & + span  {
 			color: _palette($p, fg);
 
 			&:before {
@@ -263,13 +263,23 @@ input[type="radio"] {
 			}
 		}
 
-		&:checked + label, &:checked + span {
+		& + span {
+			color: #ffffff;
+
+			&:before {
+				border-color: #ffffff;
+				color: #ffffff
+			}
+		}
+
+		&:checked + label, &:checked + label {
 			&:before {
 				background-color: _palette($p, fg-bold);
 				border-color: _palette($p, fg-bold);
 				color: _palette($p, bg);
 			}
 		}
+
 
 		&:focus + label {
 			&:before {
