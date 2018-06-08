@@ -38,6 +38,7 @@ const category_field = "TAB_NAME"
 
 /******** end config ********/
 
+
 // Initialize the Map
 var mymap = L.map('chelsea_leaflet',{
   zoomControl : false,
