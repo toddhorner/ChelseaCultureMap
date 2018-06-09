@@ -38,15 +38,16 @@ const category_field = "TAB_NAME"
 
 /******** end config ********/
 
-
 // Initialize the Map
-var mymap = L.map('chelsea_leaflet',{
-  zoomControl : false,
+var mymap = L.map('chelsea_leaflet', {
+  zoomControl: false,
   scrollWheelZoom: false
 })
 
 //Add zoom
-var zoom = new L.Control.Zoom({ position: 'bottomright' }).addTo(mymap);
+var zoom = new L.Control.Zoom({
+  position: 'bottomright'
+}).addTo(mymap);
 
 mymap.setView([42.39, -71.035], 16);
 
@@ -55,100 +56,124 @@ L.tileLayer(base_map_URL, {
   maxZoom: 21
 }).addTo(mymap);
 
-// Move zoom control to lower left corner
-// L.Control.setPosition('bottomright');
-
+// Dictionary for storing all layers.
 let layers = {};
 
-// Make a cluster layer for each type of asset category
-for (let cat in asset_categories) {
+//Query all approved cultural assets,
+//i.e. where STATUS = 1, then create Layers
+//from the resulting geoJSON, by cultural asset cateogry
+let query = L.esri.query({
+  url: feature_layer_URL
+}).where("STATUS = 1").run(function(error, featureCollection, response) {
 
-  let icon = L.icon({
-    iconUrl: "assets/icon/1x/" + asset_categories[cat] + ".png",
-    iconSize: [15, 15]
-  });
+  //Loop through all the asset categories,
+  //creating a layer for each one
+  for (let cat in asset_categories) {
 
-  // this function defines how the icons
-  // representing  clusters are created
-  let catClusterFunction = clusterFunction(asset_categories[cat])
+    //Icons for non-clustered cultural assets
+    let icon = L.icon({
+      iconUrl: "assets/icon/1x/" + asset_categories[cat] + ".png",
+      iconSize: [15, 15]
+    });
 
-  let layer = L.esri.Cluster.featureLayer({
-    url: feature_layer_URL,
-    where: category_field + " = '" + cat + "' AND STATUS = 1", // TAB_NAME
-    iconCreateFunction: catClusterFunction,
-    pointToLayer: function(geojson, latlng) {
-      return L.marker(latlng, {
-        icon: icon
-      });
-    }
-  }).addTo(mymap)
+    // Function that defines how the icons
+    // representing clusters are created
+    let catClusterFunction = clusterFunction(asset_categories[cat])
 
-  layers[asset_categories[cat]] = layer;
+    // Create an empty cluster marker group
+    let markers = L.markerClusterGroup({
+      iconCreateFunction: catClusterFunction
+    });
 
-  let popup = L.popup({
-    maxWidth:400,
-    maxHeight:400,
-    keepInView:true,
-    className: "asset_popup"
-  }).setContent(function(layer) {
+    // Create a layer, filtering for a single
+    // Asset category
+    let layer = L.geoJSON(response, {
+      pointToLayer: function(geojson, latlng) {
+        return L.marker(latlng, {
+          icon: icon
+        });
+      },
+      filter: function(feature, layer) {
+        if (feature.properties.TAB_NAME == cat) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    })
 
-    let feature_props = layer.feature.properties;
-    let template = "<h3>{NAME}</h3>"
+    //Add the layer to the cluster group
+    markers.addLayer(layer)
 
-    if (feature_props['PIC_URL']){
-      template = template + '<img src={PIC_URL}>';
-    }
+    //Add the cluster group to the map
+    mymap.addLayer(markers)
 
-    if (feature_props['DESC1']){
-      template = template + '<p>{DESC1}</p>';
-    }
+    //Add the layer to the layer dictionary
+    layers[asset_categories[cat]] = markers;
 
-    if (feature_props['TAB_NAME']){
-      template = template + '<p><i>Category: {TAB_NAME}</p></i>';
-    }
+    let popup = L.popup({
+      maxWidth: 400,
+      maxHeight: 400,
+      keepInView: true,
+      className: "asset_popup"
+    }).setContent(function(layer) {
 
-    if (feature_props['WEBSITE']){
-      template = template + '<a href={WEBSITE} class="button small special">More info</a>';
-    }
+      let feature_props = layer.feature.properties;
+      let template = "<h3>{NAME}</h3>"
 
-    return L.Util.template(template, layer.feature.properties)
-  })
+      if (feature_props['PIC_URL']) {
+        template = template + '<img src={PIC_URL}>';
+      }
 
-  layer.bindPopup(popup);
+      if (feature_props['DESC1']) {
+        template = template + '<p>{DESC1}</p>';
+      }
 
-}
+      if (feature_props['TAB_NAME']) {
+        template = template + '<p><i>Category: {TAB_NAME}</p></i>';
+      }
 
-/***********Layers control***************/
+      if (feature_props['WEBSITE']) {
+        template = template + '<a href={WEBSITE} class="button small special">More info</a>';
+      }
 
+      return L.Util.template(template, layer.feature.properties)
+    })
 
-// Swap out html-safe asset category labels for readable labels
-let asset_categories_reversed = {}
-for (let key in asset_categories){
-  asset_categories_reversed[asset_categories[key]] = key
-}
+    markers.bindPopup(popup)
+  }
 
-let label_layers = {}
-for (let key in layers){
-  label_layers[asset_categories_reversed[key]] = layers[key]
-}
+  /***********Layers control***************/
 
-var layer_widget = L.control.layers(null, label_layers).addTo(mymap);
+  // Swap out html-safe asset category labels for readable labels
+  let asset_categories_reversed = {};
+  for (let key in asset_categories) {
+    asset_categories_reversed[asset_categories[key]] = key
+  };
 
-//Adjust colors of layer layer_widget
+  let label_layers = {};
+  for (let key in layers) {
+    label_layers[asset_categories_reversed[key]] = layers[key]
+  };
 
-let palette_readable = {}
-for (let key in palette){
-  palette_readable[asset_categories_reversed[key]] = palette[key]
-}
+  let layer_widget = L.control.layers(null, label_layers).addTo(mymap);
 
-for (let key in palette_readable) {
-  selector_string = "div.leaflet-control-layers-overlays span:contains('" + key + "')"
-  $(selector_string).closest("div").css("background-color",palette_readable[key]);
-}
+  //Adjust colors of layer layer_widget
 
-//Change control icon
+  let palette_readable = {}
+  for (let key in palette) {
+    palette_readable[asset_categories_reversed[key]] = palette[key]
+  }
 
-$(".leaflet-control-layers-toggle").html("<h3>Cultural Asset Categories</h3>")
+  for (let key in palette_readable) {
+    selector_string = "div.leaflet-control-layers-overlays span:contains('" + key + "')"
+    $(selector_string).closest("div").css("background-color", palette_readable[key]);
+  }
+
+  //Change control icon
+
+  $(".leaflet-control-layers-toggle").html("<h3>Cultural Asset Categories</h3>")
+});
 
 /** HELPER FUNCTIONS **/
 
